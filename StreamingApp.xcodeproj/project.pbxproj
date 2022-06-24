@@ -16,6 +16,14 @@
 		D1C64DC328658A4A005BB26C /* StreamingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DC228658A4A005BB26C /* StreamingAppTests.swift */; };
 		D1C64DCD28658A4A005BB26C /* StreamingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DCC28658A4A005BB26C /* StreamingAppUITests.swift */; };
 		D1C64DCF28658A4A005BB26C /* StreamingAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DCE28658A4A005BB26C /* StreamingAppUITestsLaunchTests.swift */; };
+		D1C64DDD286591CA005BB26C /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C64DDC286591CA005BB26C /* Events.storyboard */; };
+		D1C64DE02865974F005BB26C /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DDF2865974F005BB26C /* EventsViewController.swift */; };
+		D1C64DE528659D1B005BB26C /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DE428659D1B005BB26C /* EventTableViewCell.swift */; };
+		D1C64DE72865A180005BB26C /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C64DE62865A180005BB26C /* SplashScreen.storyboard */; };
+		D1C64DE92865A1F1005BB26C /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DE82865A1F1005BB26C /* SplashScreenViewController.swift */; };
+		D1C64DEB2865A41C005BB26C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DEA2865A41C005BB26C /* TabBarViewController.swift */; };
+		D1C64DED2865AD82005BB26C /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C64DEC2865AD82005BB26C /* Schedule.storyboard */; };
+		D1C64DEF2865AF46005BB26C /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DEE2865AF46005BB26C /* ScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,14 @@
 		D1C64DC828658A4A005BB26C /* StreamingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreamingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C64DCC28658A4A005BB26C /* StreamingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingAppUITests.swift; sourceTree = "<group>"; };
 		D1C64DCE28658A4A005BB26C /* StreamingAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D1C64DDC286591CA005BB26C /* Events.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
+		D1C64DDF2865974F005BB26C /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		D1C64DE428659D1B005BB26C /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		D1C64DE62865A180005BB26C /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
+		D1C64DE82865A1F1005BB26C /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		D1C64DEA2865A41C005BB26C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		D1C64DEC2865AD82005BB26C /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
+		D1C64DEE2865AF46005BB26C /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +115,9 @@
 		D1C64DAA28658A47005BB26C /* StreamingApp */ = {
 			isa = PBXGroup;
 			children = (
+				D1C64DE128659C9F005BB26C /* TableViewCells */,
+				D1C64DDE28659578005BB26C /* ViewControllers */,
+				D1C64DDB28658EFB005BB26C /* Storyboards */,
 				D1C64DAB28658A47005BB26C /* AppDelegate.swift */,
 				D1C64DAD28658A47005BB26C /* SceneDelegate.swift */,
 				D1C64DAF28658A47005BB26C /* ViewController.swift */,
@@ -125,6 +144,35 @@
 				D1C64DCE28658A4A005BB26C /* StreamingAppUITestsLaunchTests.swift */,
 			);
 			path = StreamingAppUITests;
+			sourceTree = "<group>";
+		};
+		D1C64DDB28658EFB005BB26C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D1C64DDC286591CA005BB26C /* Events.storyboard */,
+				D1C64DE62865A180005BB26C /* SplashScreen.storyboard */,
+				D1C64DEC2865AD82005BB26C /* Schedule.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D1C64DDE28659578005BB26C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1C64DDF2865974F005BB26C /* EventsViewController.swift */,
+				D1C64DE82865A1F1005BB26C /* SplashScreenViewController.swift */,
+				D1C64DEA2865A41C005BB26C /* TabBarViewController.swift */,
+				D1C64DEE2865AF46005BB26C /* ScheduleViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D1C64DE128659C9F005BB26C /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				D1C64DE428659D1B005BB26C /* EventTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,8 +280,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1C64DB828658A49005BB26C /* LaunchScreen.storyboard in Resources */,
+				D1C64DDD286591CA005BB26C /* Events.storyboard in Resources */,
 				D1C64DB528658A49005BB26C /* Assets.xcassets in Resources */,
+				D1C64DE72865A180005BB26C /* SplashScreen.storyboard in Resources */,
 				D1C64DB328658A47005BB26C /* Main.storyboard in Resources */,
+				D1C64DED2865AD82005BB26C /* Schedule.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +310,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1C64DB028658A47005BB26C /* ViewController.swift in Sources */,
+				D1C64DE02865974F005BB26C /* EventsViewController.swift in Sources */,
+				D1C64DE92865A1F1005BB26C /* SplashScreenViewController.swift in Sources */,
+				D1C64DEF2865AF46005BB26C /* ScheduleViewController.swift in Sources */,
 				D1C64DAC28658A47005BB26C /* AppDelegate.swift in Sources */,
+				D1C64DEB2865A41C005BB26C /* TabBarViewController.swift in Sources */,
+				D1C64DE528659D1B005BB26C /* EventTableViewCell.swift in Sources */,
 				D1C64DAE28658A47005BB26C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,8 +501,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,8 +531,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
