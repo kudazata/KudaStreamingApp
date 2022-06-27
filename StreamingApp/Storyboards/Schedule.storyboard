@@ -15,8 +15,67 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rSR-b1-hIP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" rowHeight="100" id="pe5-bp-iEf" customClass="ScheduleTableViewCell" customModule="StreamingApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pe5-bp-iEf" id="ovT-iq-qLa">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soccer" translatesAutoresizingMaskIntoConstraints="NO" id="1uq-rt-27o">
+                                                    <rect key="frame" x="5" y="10" width="120" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="2jP-qs-ccg"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liverpool v Porto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDn-F0-4nb">
+                                                    <rect key="frame" x="135" y="10" width="129.5" height="22"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UEFA Champions League" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQM-LG-XW9">
+                                                    <rect key="frame" x="135" y="32" width="149.5" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today, 02:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeS-nq-fda">
+                                                    <rect key="frame" x="135" y="50" width="74" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1uq-rt-27o" firstAttribute="top" secondItem="ovT-iq-qLa" secondAttribute="top" constant="10" id="1YZ-AF-f2U"/>
+                                                <constraint firstItem="YeS-nq-fda" firstAttribute="leading" secondItem="sQM-LG-XW9" secondAttribute="leading" id="8P0-i8-avV"/>
+                                                <constraint firstItem="pDn-F0-4nb" firstAttribute="top" secondItem="1uq-rt-27o" secondAttribute="top" id="BDe-Yj-KVD"/>
+                                                <constraint firstItem="sQM-LG-XW9" firstAttribute="top" secondItem="pDn-F0-4nb" secondAttribute="bottom" id="GnW-Wa-yQP"/>
+                                                <constraint firstItem="YeS-nq-fda" firstAttribute="top" secondItem="sQM-LG-XW9" secondAttribute="bottom" id="OL0-j1-TyI"/>
+                                                <constraint firstItem="1uq-rt-27o" firstAttribute="leading" secondItem="ovT-iq-qLa" secondAttribute="leading" constant="5" id="SQA-zE-WRt"/>
+                                                <constraint firstAttribute="bottom" secondItem="1uq-rt-27o" secondAttribute="bottom" constant="10" id="nVZ-qw-lfd"/>
+                                                <constraint firstItem="sQM-LG-XW9" firstAttribute="leading" secondItem="pDn-F0-4nb" secondAttribute="leading" id="snS-rc-UuH"/>
+                                                <constraint firstItem="pDn-F0-4nb" firstAttribute="leading" secondItem="1uq-rt-27o" secondAttribute="trailing" constant="10" id="w2K-rh-8xW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rSR-b1-hIP" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="0uC-og-BOX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rSR-b1-hIP" secondAttribute="trailing" id="Sot-EU-ted"/>
+                            <constraint firstItem="rSR-b1-hIP" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="WY9-9r-9en"/>
+                            <constraint firstAttribute="bottom" secondItem="rSR-b1-hIP" secondAttribute="bottom" id="d9r-b1-Jnk"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -25,6 +84,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="soccer" width="320" height="240"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
