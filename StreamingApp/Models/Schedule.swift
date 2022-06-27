@@ -11,6 +11,6 @@ struct Schedule: Codable {
     let id: String?
     let title: String?
     let subtitle: String?
-    let date: String?
+    let date: Date?
     let imageUrl: String?
 }

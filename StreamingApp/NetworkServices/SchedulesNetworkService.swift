@@ -23,6 +23,9 @@ class SchedulesNetworkService {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let decoder = JSONDecoder()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
         
         return Future {[weak self] promise in
             guard let self = self else {return}

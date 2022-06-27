@@ -11,6 +11,6 @@ struct Event: Codable {
     var id: String?
     var title: String?
     var subtitle: String?
-    var date: String?
+    var date: Date?
     var imageUrl: String?
 }

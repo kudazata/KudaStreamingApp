@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import Foundation
 
 class ScheduleTableViewCell: UITableViewCell {
 
@@ -18,9 +19,17 @@ class ScheduleTableViewCell: UITableViewCell {
     func configureCell(schedule: Schedule) {
         titleLabel.text = schedule.title
         subtitleLabel.text = schedule.subtitle
-        dateLabel.text = schedule.date
+        dateLabel.text = formattedDate(date: schedule.date!)
         let imageUrl = URL(string: schedule.imageUrl!)
         self.scheduleImage.kf.setImage(with: imageUrl)
+    }
+    
+    func formattedDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.doesRelativeDateFormatting = true
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: date)
     }
     
     override func awakeFromNib() {
