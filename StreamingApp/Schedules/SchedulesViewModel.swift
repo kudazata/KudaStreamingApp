@@ -1,24 +1,23 @@
 //
-//  EventViewModel.swift
+//  SchedulesViewModel.swift
 //  StreamingApp
 //
-//  Created by Kuda Zata on 24/6/2022.
+//  Created by Kuda Zata on 27/6/2022.
 //
 
 import Foundation
 import Combine
 
-class EventsViewModel {
+class SchedulesViewModel {
     
-    @Published var events = [Event]()
+    @Published var schedules = [Schedule]()
     private var anyCancellable = Set<AnyCancellable>()
     
     init()
     {}
     
-    func getEvents() {
-        
-        EventsNetworkService.shared.getEvents()
+    func getSchedules() {
+        SchedulesNetworkService.shared.getSchedules()
             .receive(on: DispatchQueue.main)
             .map{$0}
             .sink { completion in
@@ -29,9 +28,9 @@ class EventsViewModel {
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
-            } receiveValue: { [weak self] events in
+            } receiveValue: { [weak self] schedules in
                 guard let self = self else {return}
-                self.events = events
+                self.schedules = schedules
             }
             .store(in: &anyCancellable)
     }

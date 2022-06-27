@@ -1,21 +1,21 @@
 //
-//  EventsNetworkService.swift
+//  SchedulesNetworkService.swift
 //  StreamingApp
 //
-//  Created by Kuda Zata on 24/6/2022.
+//  Created by Kuda Zata on 27/6/2022.
 //
 
 import Foundation
 import Combine
 
-class EventsNetworkService {
+class SchedulesNetworkService {
     
+    static let shared = SchedulesNetworkService()
     var anyCancellable = Set<AnyCancellable>()
-    static let shared = EventsNetworkService()
     
-    func getEvents() -> AnyPublisher<[Event], Error> {
+    func getSchedules() -> AnyPublisher<[Schedule], Error> {
         
-        let urlString = "https://us-central1-dazn-sandbox.cloudfunctions.net/getEvents"
+        let urlString = "https://us-central1-dazn-sandbox.cloudfunctions.net/getSchedule"
         let url = URL.init(string: urlString)!
         var request = URLRequest.init(url: url)
         request.httpMethod = "GET"
@@ -35,16 +35,16 @@ class EventsNetworkService {
                     }
                     return element.data
                 }
-                .decode(type: [Event].self, decoder: decoder)
+                .decode(type: [Schedule].self, decoder: decoder)
                 .receive(on: DispatchQueue.main)
                 .sink { _ in
                    
-                } receiveValue: { events in
-                    promise(.success(events))
+                } receiveValue: { schedules in
+                    promise(.success(schedules))
                 }
                 .store(in: &self.anyCancellable)
         }
         .eraseToAnyPublisher()
-    }
 
+    }
 }

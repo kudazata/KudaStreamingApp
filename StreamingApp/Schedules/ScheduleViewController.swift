@@ -1,5 +1,5 @@
 //
-//  EventsViewController.swift
+//  ScheduleViewController.swift
 //  StreamingApp
 //
 //  Created by Kuda Zata on 24/6/2022.
@@ -8,34 +8,32 @@
 import UIKit
 import Combine
 
-class EventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tableView: UITableView!
-    var eventsViewModel = EventsViewModel()
+    var schedulesViewModel = SchedulesViewModel()
     var anyCancellable = Set<AnyCancellable>()
-
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if eventsViewModel.events.count == 0 {
-            getEvents()
-        }
+        getSchedule()
     }
- 
+    
     //MARK: - Tableview functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsViewModel.events.count
+        schedulesViewModel.schedules.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell") as! EventTableViewCell
-        eventsViewModel.$events
+        let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCell") as! ScheduleTableViewCell
+        schedulesViewModel.$schedules
             .receive(on: DispatchQueue.main)
-            .sink { events in
-                cell.configureCell(event: events[indexPath.row])
+            .sink { schedules in
+                cell.configureCell(schedule: schedules[indexPath.row])
             }
             .store(in: &anyCancellable)
         return cell
@@ -45,10 +43,11 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         return 90
     }
     
+    
     //MARK: - Network functions
-    func getEvents() {
-        eventsViewModel.getEvents()
-        eventsViewModel.$events
+    func getSchedule() {
+        schedulesViewModel.getSchedules()
+        schedulesViewModel.$schedules
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.tableView.reloadData()

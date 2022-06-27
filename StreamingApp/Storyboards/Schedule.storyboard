@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" rowHeight="100" id="pe5-bp-iEf" customClass="ScheduleTableViewCell" customModule="StreamingApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="scheduleCell" rowHeight="100" id="pe5-bp-iEf" customClass="ScheduleTableViewCell" customModule="StreamingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pe5-bp-iEf" id="ovT-iq-qLa">
@@ -64,8 +64,18 @@
                                                 <constraint firstItem="pDn-F0-4nb" firstAttribute="leading" secondItem="1uq-rt-27o" secondAttribute="trailing" constant="10" id="w2K-rh-8xW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="YeS-nq-fda" id="gcx-ai-D5j"/>
+                                            <outlet property="scheduleImage" destination="1uq-rt-27o" id="3jC-9i-doD"/>
+                                            <outlet property="subtitleLabel" destination="sQM-LG-XW9" id="7a6-sO-feT"/>
+                                            <outlet property="titleLabel" destination="pDn-F0-4nb" id="sWQ-Sq-JXb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="auv-w0-TVZ"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="TeG-QX-Mlp"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -77,6 +87,9 @@
                             <constraint firstAttribute="bottom" secondItem="rSR-b1-hIP" secondAttribute="bottom" id="d9r-b1-Jnk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="rSR-b1-hIP" id="tQQ-E4-c9P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
