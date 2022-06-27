@@ -13,4 +13,5 @@ struct Event: Codable {
     var subtitle: String?
     var date: Date?
     var imageUrl: String?
+    var videoUrl: String?
 }

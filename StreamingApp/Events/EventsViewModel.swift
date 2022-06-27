@@ -31,7 +31,7 @@ class EventsViewModel {
                 }
             } receiveValue: { [weak self] events in
                 guard let self = self else {return}
-                self.events = events
+                self.events = events.sorted(by: {$0.date!.compare($1.date!) == .orderedAscending})
             }
             .store(in: &anyCancellable)
     }

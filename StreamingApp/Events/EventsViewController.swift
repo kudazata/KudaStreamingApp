@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import SVProgressHUD
 
 class EventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -21,6 +22,7 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidAppear(_ animated: Bool) {
         if eventsViewModel.events.count == 0 {
+            showProgressHUD()
             getEvents()
         }
     }
@@ -52,7 +54,23 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.tableView.reloadData()
+                if (self?.eventsViewModel.events.count)! > 0 {
+                    SVProgressHUD.dismiss()
+                }
             }
             .store(in: &anyCancellable)
+    }
+}
+
+extension UIViewController {
+    func showProgressHUD() {
+        
+        //Customizing SVProgressHUD
+        view.endEditing(true)
+        SVProgressHUD.setRingThickness(6)
+        SVProgressHUD.setDefaultMaskType(.black)
+        SVProgressHUD.setForegroundColor(UIColor.white)
+        SVProgressHUD.setBackgroundColor(.clear)
+        SVProgressHUD.show()
     }
 }
