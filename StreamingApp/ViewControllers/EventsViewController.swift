@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import SVProgressHUD
+import AVKit
 
 class EventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -41,6 +42,16 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
             }
             .store(in: &anyCancellable)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let url = URL(string: eventsViewModel.events[indexPath.row].videoUrl!)
+        let avPlayer = AVPlayer(url: url!)
+        avPlayer.play()
+        let avController = AVPlayerViewController()
+        avController.player = avPlayer
+        present(avController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
