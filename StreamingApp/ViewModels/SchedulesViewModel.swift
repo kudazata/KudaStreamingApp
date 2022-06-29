@@ -10,7 +10,7 @@ import Combine
 
 class SchedulesViewModel {
     
-    @Published var schedules = [Schedule]()
+    var schedules = CurrentValueSubject<[Schedule], Never>([Schedule]())
     private var anyCancellable = Set<AnyCancellable>()
     
     init()
@@ -32,7 +32,7 @@ class SchedulesViewModel {
                 }
             } receiveValue: { [weak self] schedules in
                 guard let self = self else {return}
-                self.schedules = schedules.sorted(by: {$0.date!.compare($1.date!) == .orderedAscending})
+                self.schedules.send(schedules.sorted(by: {$0.date!.compare($1.date!) == .orderedAscending}))
             }
             .store(in: &anyCancellable)
     }

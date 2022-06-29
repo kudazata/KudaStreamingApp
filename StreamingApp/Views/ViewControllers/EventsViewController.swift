@@ -18,35 +18,42 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupBinder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if eventsViewModel.events.count == 0 {
+        if eventsViewModel.events.value.count == 0 {
             showProgressHUD()
-            getEvents()
+            eventsViewModel.getEvents()
         }
+    }
+    
+    //MARK: - Setup binder
+    func setupBinder() {
+        eventsViewModel.events.sink { [unowned self] _ in
+            DispatchQueue.main.async {
+                if self.eventsViewModel.events.value.count > 0 {
+                    SVProgressHUD.dismiss()
+                }
+                self.tableView.reloadData()
+            }
+        }.store(in: &anyCancellable)
     }
  
     //MARK: - Tableview functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsViewModel.events.count
+        return eventsViewModel.events.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell") as! EventTableViewCell
-        eventsViewModel.$events
-            .receive(on: DispatchQueue.main)
-            .sink { events in
-                cell.configureCell(event: events[indexPath.row])
-            }
-            .store(in: &anyCancellable)
+        cell.configureCell(event: eventsViewModel.events.value[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let url = URL(string: eventsViewModel.events[indexPath.row].videoUrl!)
+        let url = URL(string: eventsViewModel.events.value[indexPath.row].videoUrl!)
         let avPlayer = AVPlayer(url: url!)
         avPlayer.play()
         let avController = AVPlayerViewController()
@@ -57,31 +64,5 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
-    
-    //MARK: - Network functions
-    func getEvents() {
-        eventsViewModel.getEvents()
-        eventsViewModel.$events
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                self?.tableView.reloadData()
-                if (self?.eventsViewModel.events.count)! > 0 {
-                    SVProgressHUD.dismiss()
-                }
-            }
-            .store(in: &anyCancellable)
-    }
-}
 
-extension UIViewController {
-    func showProgressHUD() {
-        
-        //Customizing SVProgressHUD
-        view.endEditing(true)
-        SVProgressHUD.setRingThickness(6)
-        SVProgressHUD.setDefaultMaskType(.black)
-        SVProgressHUD.setForegroundColor(UIColor.white)
-        SVProgressHUD.setBackgroundColor(.clear)
-        SVProgressHUD.show()
-    }
 }

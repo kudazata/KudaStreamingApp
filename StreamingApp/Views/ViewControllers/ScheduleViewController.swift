@@ -17,14 +17,25 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBinder()
         setupTimer()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if schedulesViewModel.schedules.count == 0 {
+        if schedulesViewModel.schedules.value.count == 0 {
             showProgressHUD()
             getSchedule()
         }
+    }
+    
+    //MARK: - Setup binder and timer
+    func setupBinder() {
+        schedulesViewModel.schedules.sink { [unowned self] _ in
+            self.tableView.reloadData()
+            if self.schedulesViewModel.schedules.value.count > 0 {
+                SVProgressHUD.dismiss()
+            }
+        }.store(in: &anyCancellable)
     }
     
     func setupTimer() {
@@ -39,17 +50,12 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     //MARK: - Tableview functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        schedulesViewModel.schedules.count
+        schedulesViewModel.schedules.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCell") as! ScheduleTableViewCell
-        schedulesViewModel.$schedules
-            .receive(on: DispatchQueue.main)
-            .sink { schedules in
-                cell.configureCell(schedule: schedules[indexPath.row])
-            }
-            .store(in: &anyCancellable)
+        cell.configureCell(schedule: schedulesViewModel.schedules.value[indexPath.row])
         return cell
     }
     
@@ -61,14 +67,5 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: - Network functions
     func getSchedule() {
         schedulesViewModel.getSchedules()
-        schedulesViewModel.$schedules
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                self?.tableView.reloadData()
-                if (self?.schedulesViewModel.schedules.count)! > 0 {
-                    SVProgressHUD.dismiss()
-                }
-            }
-            .store(in: &anyCancellable)
     }
 }
