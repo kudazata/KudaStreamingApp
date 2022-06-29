@@ -16,8 +16,10 @@ class SchedulesViewModel {
     init()
     {}
     
+    let schedulesService = SchedulesNetworkService()
+    
     func getSchedules() {
-        SchedulesNetworkService.shared.getSchedules()
+        schedulesService.getScheduless()
             .receive(on: DispatchQueue.main)
             .map{$0}
             .sink { completion in

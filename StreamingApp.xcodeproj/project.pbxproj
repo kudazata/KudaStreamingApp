@@ -32,6 +32,8 @@
 		D1C64E032869CBE7005BB26C /* SchedulesNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64E022869CBE7005BB26C /* SchedulesNetworkService.swift */; };
 		D1C64E062869D875005BB26C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64E052869D875005BB26C /* ScheduleTableViewCell.swift */; };
 		D1C64E082869DC8C005BB26C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C64E072869DC8B005BB26C /* Main.storyboard */; };
+		D1CDFF4A286C7FBD0028E5F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CDFF49286C7FBD0028E5F2 /* Extensions.swift */; };
+		D1CDFF4C286C81B90028E5F2 /* Apis.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CDFF4B286C81B90028E5F2 /* Apis.swift */; };
 		F62DBF8DD35EE1D1F7219BD1 /* Pods_StreamingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B6AB6687966D45B67A8E25 /* Pods_StreamingApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,8 @@
 		D1C64E022869CBE7005BB26C /* SchedulesNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesNetworkService.swift; sourceTree = "<group>"; };
 		D1C64E052869D875005BB26C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		D1C64E072869DC8B005BB26C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D1CDFF49286C7FBD0028E5F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D1CDFF4B286C81B90028E5F2 /* Apis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apis.swift; sourceTree = "<group>"; };
 		D9CCD473F26C4766648DDE07 /* Pods-StreamingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreamingApp.release.xcconfig"; path = "Target Support Files/Pods-StreamingApp/Pods-StreamingApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,17 +171,14 @@
 		D1C64DAA28658A47005BB26C /* StreamingApp */ = {
 			isa = PBXGroup;
 			children = (
-				D1C64E0A286B33BA005BB26C /* TableViewCells */,
+				D1CDFF48286C7FAE0028E5F2 /* Utils */,
+				D1C64DF528663E84005BB26C /* Models */,
+				D1CDFF47286C78E90028E5F2 /* Views */,
 				D1C64E09286B33A2005BB26C /* ViewModels */,
 				D1C64DFA28665498005BB26C /* NetworkServices */,
-				D1C64DF528663E84005BB26C /* Models */,
-				D1C64DDE28659578005BB26C /* ViewControllers */,
-				D1C64DDB28658EFB005BB26C /* Storyboards */,
 				D1C64DAB28658A47005BB26C /* AppDelegate.swift */,
 				D1C64DAD28658A47005BB26C /* SceneDelegate.swift */,
 				D1C64DB428658A49005BB26C /* Assets.xcassets */,
-				D1C64E072869DC8B005BB26C /* Main.storyboard */,
-				D1C64DB628658A49005BB26C /* LaunchScreen.storyboard */,
 				D1C64DB928658A49005BB26C /* Info.plist */,
 			);
 			path = StreamingApp;
@@ -203,6 +204,8 @@
 		D1C64DDB28658EFB005BB26C /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D1C64E072869DC8B005BB26C /* Main.storyboard */,
+				D1C64DB628658A49005BB26C /* LaunchScreen.storyboard */,
 				D1C64DDC286591CA005BB26C /* Events.storyboard */,
 				D1C64DE62865A180005BB26C /* SplashScreen.storyboard */,
 				D1C64DEC2865AD82005BB26C /* Schedule.storyboard */,
@@ -255,6 +258,25 @@
 				D1C64E052869D875005BB26C /* ScheduleTableViewCell.swift */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		D1CDFF47286C78E90028E5F2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1C64DDB28658EFB005BB26C /* Storyboards */,
+				D1C64DDE28659578005BB26C /* ViewControllers */,
+				D1C64E0A286B33BA005BB26C /* TableViewCells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D1CDFF48286C7FAE0028E5F2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D1CDFF49286C7FBD0028E5F2 /* Extensions.swift */,
+				D1CDFF4B286C81B90028E5F2 /* Apis.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,6 +523,7 @@
 			files = (
 				D1C64DF728663E95005BB26C /* Event.swift in Sources */,
 				D1C64DE02865974F005BB26C /* EventsViewController.swift in Sources */,
+				D1CDFF4C286C81B90028E5F2 /* Apis.swift in Sources */,
 				D1C64DE92865A1F1005BB26C /* SplashScreenViewController.swift in Sources */,
 				D1C64DEF2865AF46005BB26C /* ScheduleViewController.swift in Sources */,
 				D1C64E032869CBE7005BB26C /* SchedulesNetworkService.swift in Sources */,
@@ -509,6 +532,7 @@
 				D1C64DFC286654B0005BB26C /* EventsNetworkService.swift in Sources */,
 				D1C64DEB2865A41C005BB26C /* TabBarViewController.swift in Sources */,
 				D1C64DE528659D1B005BB26C /* EventTableViewCell.swift in Sources */,
+				D1CDFF4A286C7FBD0028E5F2 /* Extensions.swift in Sources */,
 				D1C64E062869D875005BB26C /* ScheduleTableViewCell.swift in Sources */,
 				D1C64DAE28658A47005BB26C /* SceneDelegate.swift in Sources */,
 				D1C64DFF2869CA30005BB26C /* Schedule.swift in Sources */,

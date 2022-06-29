@@ -11,11 +11,10 @@ import Combine
 class EventsNetworkService {
     
     var anyCancellable = Set<AnyCancellable>()
-    static let shared = EventsNetworkService()
     
     func getEvents() -> AnyPublisher<[Event], Error> {
         
-        let urlString = "https://us-central1-dazn-sandbox.cloudfunctions.net/getEvents"
+        let urlString = Apis.getEventsApi
         let url = URL.init(string: urlString)!
         var request = URLRequest.init(url: url)
         request.httpMethod = "GET"

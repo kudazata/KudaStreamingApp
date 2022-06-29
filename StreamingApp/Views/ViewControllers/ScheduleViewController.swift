@@ -14,12 +14,10 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     var schedulesViewModel = SchedulesViewModel()
     var anyCancellable = Set<AnyCancellable>()
     @IBOutlet weak var tableView: UITableView!
-    var counter = 0
-    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(updateSchedule), userInfo: nil, repeats: true)
+        setupTimer()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -27,6 +25,16 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
             showProgressHUD()
             getSchedule()
         }
+    }
+    
+    func setupTimer() {
+        Timer.publish(every: 10, on: .main, in: .default)
+            .autoconnect()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.getSchedule()
+            }
+            .store(in: &anyCancellable)
     }
     
     //MARK: - Tableview functions
@@ -56,17 +64,11 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         schedulesViewModel.$schedules
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
-                UIView.performWithoutAnimation {
-                    self?.tableView.reloadData()
-                    if (self?.schedulesViewModel.schedules.count)! > 0 {
-                        SVProgressHUD.dismiss()
-                    }
+                self?.tableView.reloadData()
+                if (self?.schedulesViewModel.schedules.count)! > 0 {
+                    SVProgressHUD.dismiss()
                 }
             }
             .store(in: &anyCancellable)
-    }
-    
-    @objc func updateSchedule() {
-        getSchedule()
     }
 }

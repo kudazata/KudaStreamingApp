@@ -12,13 +12,16 @@ class EventsViewModel {
     
     @Published var events = [Event]()
     private var anyCancellable = Set<AnyCancellable>()
+    let dateFormatter = DateFormatter()
     
     init()
     {}
     
+    let eventsService = EventsNetworkService()
+    
     func getEvents() {
         
-        EventsNetworkService.shared.getEvents()
+        eventsService.getEvents()
             .receive(on: DispatchQueue.main)
             .map{$0}
             .sink { completion in

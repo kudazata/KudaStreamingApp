@@ -33,20 +33,20 @@
                                                         <constraint firstAttribute="width" constant="120" id="Xnx-W7-dHl"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liverpool v Porto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAh-f9-okW">
-                                                    <rect key="frame" x="135" y="10" width="129.5" height="22"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liverpool v Porto Liverpool v Porto Liverpool v Porto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAh-f9-okW">
+                                                    <rect key="frame" x="135" y="10" width="274" height="38.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UEFA Champions League" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukU-ej-3DB">
-                                                    <rect key="frame" x="135" y="32" width="149.5" height="18"/>
+                                                    <rect key="frame" x="135" y="48.5" width="149.5" height="18"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today, 02:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaR-eV-LnS">
-                                                    <rect key="frame" x="135" y="50" width="74" height="18"/>
+                                                    <rect key="frame" x="135" y="72" width="74" height="18"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -56,12 +56,13 @@
                                                 <constraint firstItem="iaR-eV-LnS" firstAttribute="leading" secondItem="ukU-ej-3DB" secondAttribute="leading" id="0jk-oi-uGm"/>
                                                 <constraint firstItem="wAh-f9-okW" firstAttribute="leading" secondItem="v7K-fR-08c" secondAttribute="trailing" constant="10" id="3sY-7o-k2s"/>
                                                 <constraint firstItem="ukU-ej-3DB" firstAttribute="leading" secondItem="wAh-f9-okW" secondAttribute="leading" id="Bul-y5-Xsn"/>
+                                                <constraint firstAttribute="trailing" secondItem="wAh-f9-okW" secondAttribute="trailing" constant="5" id="FNx-qA-mm6"/>
                                                 <constraint firstItem="v7K-fR-08c" firstAttribute="leading" secondItem="tDD-0o-7XN" secondAttribute="leading" constant="5" id="HbK-Ew-a2v"/>
                                                 <constraint firstAttribute="bottom" secondItem="v7K-fR-08c" secondAttribute="bottom" constant="10" id="HoR-yh-MCY"/>
                                                 <constraint firstItem="wAh-f9-okW" firstAttribute="top" secondItem="v7K-fR-08c" secondAttribute="top" id="g4H-nN-nn5"/>
                                                 <constraint firstItem="v7K-fR-08c" firstAttribute="top" secondItem="tDD-0o-7XN" secondAttribute="top" constant="10" id="laT-tn-eMj"/>
-                                                <constraint firstItem="iaR-eV-LnS" firstAttribute="top" secondItem="ukU-ej-3DB" secondAttribute="bottom" id="pw5-v2-bbA"/>
                                                 <constraint firstItem="ukU-ej-3DB" firstAttribute="top" secondItem="wAh-f9-okW" secondAttribute="bottom" id="t03-QW-4JG"/>
+                                                <constraint firstItem="iaR-eV-LnS" firstAttribute="bottom" secondItem="v7K-fR-08c" secondAttribute="bottom" id="zNO-eP-i2k"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

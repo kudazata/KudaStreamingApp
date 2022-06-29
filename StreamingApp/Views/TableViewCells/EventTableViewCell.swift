@@ -18,27 +18,8 @@ class EventTableViewCell: UITableViewCell {
     func configureCell(event: Event) {
         titleLabel.text = event.title
         subtitleLabel.text = event.subtitle
-        dateLabel.text = formattedDate(date: event.date!)
+        dateLabel.text = DateFormatter.relativeDateFormatter.string(from: event.date!)
         let imageUrl = URL(string: event.imageUrl!)
         self.eventImage.kf.setImage(with: imageUrl)
     }
-    
-    func formattedDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.doesRelativeDateFormatting = true
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
-        return dateFormatter.string(from: date)
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
-
 }

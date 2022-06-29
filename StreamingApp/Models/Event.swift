@@ -15,3 +15,5 @@ struct Event: Codable {
     var imageUrl: String?
     var videoUrl: String?
 }
+
+//group all views in one folder

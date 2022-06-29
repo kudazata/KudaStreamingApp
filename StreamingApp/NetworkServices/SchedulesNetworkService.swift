@@ -9,13 +9,12 @@ import Foundation
 import Combine
 
 class SchedulesNetworkService {
-    
-    static let shared = SchedulesNetworkService()
+
     var anyCancellable = Set<AnyCancellable>()
     
-    func getSchedules() -> AnyPublisher<[Schedule], Error> {
+    func getScheduless() -> AnyPublisher<[Schedule], Error> {
         
-        let urlString = "https://us-central1-dazn-sandbox.cloudfunctions.net/getSchedule"
+        let urlString = Apis.getSchedulesApi
         let url = URL.init(string: urlString)!
         var request = URLRequest.init(url: url)
         request.httpMethod = "GET"
