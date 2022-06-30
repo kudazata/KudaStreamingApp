@@ -39,7 +39,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func setupTimer() {
-        Timer.publish(every: 10, on: .main, in: .default)
+        Timer.publish(every: 30, on: .main, in: .default)
             .autoconnect()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
