@@ -32,7 +32,8 @@ class SchedulesViewModel {
                 }
             } receiveValue: { [weak self] schedules in
                 guard let self = self else {return}
-                self.schedules.send(schedules.sorted(by: {$0.date!.compare($1.date!) == .orderedAscending}))
+                let sortedSchedules = schedules.sorted(by: {$0.date!.compare($1.date!) == .orderedAscending})
+                self.schedules.send(sortedSchedules)
             }
             .store(in: &anyCancellable)
     }
