@@ -11,13 +11,12 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tabBar.tintColor = .white
         tabBar.barTintColor = .black
         setupVCs()
     }
     
-    func setupVCs() {
+    private func setupVCs() {
         
         let eventsVC = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "eventsVC")
         let scheduleVC = UIStoryboard(name: "Schedule", bundle: nil).instantiateViewController(withIdentifier: "scheduleVC")
@@ -28,7 +27,7 @@ class TabBarViewController: UITabBarController {
         ]
     }
     
-    fileprivate func createNavController(for rootViewController: UIViewController,
+    private func createNavController(for rootViewController: UIViewController,
                                                       title: String,
                                                       imageName: String) -> UIViewController {
         let navController = UINavigationController(rootViewController: rootViewController)
@@ -38,6 +37,5 @@ class TabBarViewController: UITabBarController {
         rootViewController.navigationItem.title = title
         return navController
     }
-    
 
 }

@@ -8,12 +8,10 @@
 import Foundation
 
 struct Event: Codable {
-    var id: String?
-    var title: String?
-    var subtitle: String?
-    var date: Date?
-    var imageUrl: String?
-    var videoUrl: String?
+    let id: String
+    let title: String
+    let subtitle: String
+    let date: Date
+    let imageUrl: String
+    let videoUrl: String
 }
-
-//group all views in one folder

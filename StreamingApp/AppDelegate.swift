@@ -14,6 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         // Override point for customization after application launch.
+        let tabBar = TabBarViewController()
+        tabBar.modalPresentationStyle = .fullScreen
+        self.window?.rootViewController = tabBar
+
         return true
     }
 

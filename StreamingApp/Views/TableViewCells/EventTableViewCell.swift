@@ -15,11 +15,11 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var eventImage: UIImageView!
     
-    func configureCell(event: Event) {
-        titleLabel.text = event.title
-        subtitleLabel.text = event.subtitle
-        dateLabel.text = DateFormatter.relativeDateFormatter.string(from: event.date!)
-        let imageUrl = URL(string: event.imageUrl!)
+    func configureCell(eventVM: EventViewModel) {
+        titleLabel.text = eventVM.title
+        subtitleLabel.text = eventVM.subtitle
+        dateLabel.text = eventVM.date
+        let imageUrl = URL(string: eventVM.imageUrl)
         self.eventImage.kf.setImage(with: imageUrl)
     }
 }

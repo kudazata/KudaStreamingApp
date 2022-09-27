@@ -6,54 +6,49 @@
 //
 
 import UIKit
-import Combine
 import SVProgressHUD
 import AVKit
 
-class EventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EventsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EventsDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    var eventsViewModel = EventsViewModel()
-    var anyCancellable = Set<AnyCancellable>()
+    var eventsViewModel = EventsListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBinder()
+        eventsViewModel.eventsDelegate = self
+        eventsViewModel.getEvents()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if eventsViewModel.events.value.count == 0 {
-            showProgressHUD()
-            eventsViewModel.getEvents()
+    
+    //MARK: - Delegate functions
+    func didFetchEvents() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
     
-    //MARK: - Setup binder
-    func setupBinder() {
-        eventsViewModel.events.sink { [unowned self] _ in
-            DispatchQueue.main.async {
-                if self.eventsViewModel.events.value.count > 0 {
-                    SVProgressHUD.dismiss()
-                }
-                self.tableView.reloadData()
-            }
-        }.store(in: &anyCancellable)
+    func errorFetchingEvents(error: NetworkError) {
+        print(error.localizedDescription)
     }
+    
  
     //MARK: - Tableview functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsViewModel.events.value.count
+        return eventsViewModel.numberOfRowsInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell") as! EventTableViewCell
-        cell.configureCell(event: eventsViewModel.events.value[indexPath.row])
+        let eventVM = eventsViewModel.eventAtIndex(indexPath.row)
+        cell.configureCell(eventVM: eventVM)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let url = URL(string: eventsViewModel.events.value[indexPath.row].videoUrl!)
+        let eventVM = eventsViewModel.eventAtIndex(indexPath.row)
+        let url = URL(string: eventVM.videoUrl)
         let avPlayer = AVPlayer(url: url!)
         avPlayer.play()
         let avController = AVPlayerViewController()
