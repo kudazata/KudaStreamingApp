@@ -9,11 +9,11 @@ import Foundation
 
 struct EventViewModel {
     
-    init(event: Event) {
+    init(_ event: Event) {
         self.event = event
     }
     
-    var event: Event
+    private var event: Event
     
     var title: String {
         return event.title

@@ -7,8 +7,8 @@
 
 import Foundation
 
-class Apis {
+struct URLs {
     static let baseUrl = "https://us-central1-dazn-sandbox.cloudfunctions.net/"
-    static let getEventsApi = baseUrl + "getEvents"
-    static let getSchedulesApi = baseUrl + "getSchedule"
+    static let getEventsUrl = baseUrl + "getEvents"
+    static let getSchedulesUrl = baseUrl + "getSchedule"
 }

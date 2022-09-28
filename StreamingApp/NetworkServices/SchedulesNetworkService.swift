@@ -6,47 +6,39 @@
 //
 
 import Foundation
-import Combine
 
 class SchedulesNetworkService {
-
-    var anyCancellable = Set<AnyCancellable>()
     
-    func getScheduless() -> AnyPublisher<[Schedule], Error> {
+    func getSchedules(completion: @escaping ([Schedule]?, NetworkError?) -> Void) {
         
-        let urlString = Apis.getSchedulesApi
-        let url = URL.init(string: urlString)!
-        var request = URLRequest.init(url: url)
-        request.httpMethod = "GET"
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let requestBuilder = RequestBuilder(url: URLs.getSchedulesUrl, body: nil, headers: nil, httpMethod: .GET)
         
-        let decoder = JSONDecoder()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
-        
-        return Future {[weak self] promise in
-            guard let self = self else {return}
-            URLSession.shared.dataTaskPublisher(for: url)
-                .retry(1)
-                .map{$0}
-                .tryMap { element -> Data in
-                    guard let httpResponse = element.response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                        throw URLError(.badServerResponse)
-                    }
-                    return element.data
-                }
-                .decode(type: [Schedule].self, decoder: decoder)
-                .receive(on: DispatchQueue.main)
-                .sink { _ in
-                   
-                } receiveValue: { schedules in
-                    promise(.success(schedules))
-                }
-                .store(in: &self.anyCancellable)
+        guard let request = requestBuilder.createRequest() else {
+            completion(nil, .badUrl)
+            return
         }
-        .eraseToAnyPublisher()
 
+        let resource = Resource<[Schedule]>(urlRequest: request) { data in
+            let decoder = JSONDecoder()
+            decoder.setDateDecodingStrategy()
+            let schedules = try? decoder.decode([Schedule].self, from: data)
+            return schedules
+        }
+        
+        WebService().makeNetworkCall(resource: resource) { result in
+            
+            switch result {
+            case let .success(schedules):
+                if let schedules = schedules {
+                    completion(schedules, nil)
+                }
+                else {
+                    completion(nil, .decodingError)
+                }
+                
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
     }
 }

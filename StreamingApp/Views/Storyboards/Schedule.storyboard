@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Schedule View Controller-->
+        <!--Schedule List View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="scheduleVC" id="Y6W-OH-hqX" customClass="ScheduleViewController" customModule="StreamingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scheduleVC" id="Y6W-OH-hqX" customClass="ScheduleListViewController" customModule="StreamingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,11 +78,16 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="TeG-QX-Mlp"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="P4h-Ia-gfY">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rSR-b1-hIP" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="0uC-og-BOX"/>
+                            <constraint firstItem="P4h-Ia-gfY" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="4UC-H6-9QK"/>
+                            <constraint firstItem="P4h-Ia-gfY" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="AJH-62-XuL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rSR-b1-hIP" secondAttribute="trailing" id="Sot-EU-ted"/>
                             <constraint firstItem="rSR-b1-hIP" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="WY9-9r-9en"/>
                             <constraint firstAttribute="bottom" secondItem="rSR-b1-hIP" secondAttribute="bottom" id="d9r-b1-Jnk"/>

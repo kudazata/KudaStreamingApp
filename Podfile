@@ -7,7 +7,6 @@ target 'StreamingApp' do
 
   # Pods for StreamingApp
   pod 'Kingfisher'
-  pod 'SVProgressHUD'
  
  target 'StreamingAppTests' do
     inherit! :search_paths

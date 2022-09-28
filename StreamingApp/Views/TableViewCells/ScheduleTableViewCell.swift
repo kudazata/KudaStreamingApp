@@ -16,11 +16,11 @@ class ScheduleTableViewCell: UITableViewCell {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    func configureCell(schedule: Schedule) {
-        titleLabel.text = schedule.title
-        subtitleLabel.text = schedule.subtitle
-        dateLabel.text = DateFormatter.relativeDateFormatter.string(from: schedule.date!)
-        let imageUrl = URL(string: schedule.imageUrl!)
+    func configureCell(scheduleVM: ScheduleViewModel) {
+        titleLabel.text = scheduleVM.title
+        subtitleLabel.text = scheduleVM.subtitle
+        dateLabel.text = scheduleVM.date
+        let imageUrl = URL(string: scheduleVM.imageUrl)
         self.scheduleImage.kf.setImage(with: imageUrl)
     }
 

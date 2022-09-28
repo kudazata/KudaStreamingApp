@@ -14,7 +14,7 @@ class EventsNetworkService {
     ///   - completion: Block of code to be executed by caller
     func getEvents(completion: @escaping ([Event]?, NetworkError?) -> Void) {
         
-        let requestBuilder = RequestBuilder(url: Apis.getEventsApi, body: nil, headers: nil, httpMethod: .GET)
+        let requestBuilder = RequestBuilder(url: URLs.getEventsUrl, body: nil, headers: nil, httpMethod: .GET)
         
         guard let urlRequest = requestBuilder.createRequest() else {
             completion(nil, .badUrl)
@@ -42,5 +42,4 @@ class EventsNetworkService {
             }
         }
     }
-
 }

@@ -6,48 +6,52 @@
 //
 
 import UIKit
-import SVProgressHUD
 import AVKit
 
 class EventsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EventsDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    var eventsViewModel = EventsListViewModel()
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    private var eventsListViewModel = EventsListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventsViewModel.eventsDelegate = self
-        eventsViewModel.getEvents()
+        eventsListViewModel.eventsDelegate = self
+        eventsListViewModel.getEvents()
     }
     
     
     //MARK: - Delegate functions
     func didFetchEvents() {
         DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
             self.tableView.reloadData()
         }
     }
     
     func errorFetchingEvents(error: NetworkError) {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+        }
         print(error.localizedDescription)
     }
     
  
     //MARK: - Tableview functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsViewModel.numberOfRowsInSection(section)
+        return eventsListViewModel.numberOfRowsInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell") as! EventTableViewCell
-        let eventVM = eventsViewModel.eventAtIndex(indexPath.row)
+        let eventVM = eventsListViewModel.eventAtIndex(indexPath.row)
         cell.configureCell(eventVM: eventVM)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let eventVM = eventsViewModel.eventAtIndex(indexPath.row)
+        let eventVM = eventsListViewModel.eventAtIndex(indexPath.row)
         let url = URL(string: eventVM.videoUrl)
         let avPlayer = AVPlayer(url: url!)
         avPlayer.play()

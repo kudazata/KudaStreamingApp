@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import SVProgressHUD
 
 extension DateFormatter {
     static let relativeDateFormatter: DateFormatter = {
@@ -19,15 +18,3 @@ extension DateFormatter {
     }()
 }
 
-extension UIViewController {
-    func showProgressHUD() {
-        
-        //Customizing SVProgressHUD
-        view.endEditing(true)
-        SVProgressHUD.setRingThickness(6)
-        SVProgressHUD.setDefaultMaskType(.black)
-        SVProgressHUD.setForegroundColor(UIColor.white)
-        SVProgressHUD.setBackgroundColor(.clear)
-        SVProgressHUD.show()
-    }
-}

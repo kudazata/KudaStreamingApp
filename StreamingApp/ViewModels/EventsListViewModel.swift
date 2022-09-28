@@ -27,7 +27,7 @@ class EventsListViewModel {
     
     func eventAtIndex(_ index: Int) -> EventViewModel {
         let event = self.events[index]
-        return EventViewModel(event: event)
+        return EventViewModel(event)
     }
     
     func getEvents() {

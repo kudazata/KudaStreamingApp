@@ -12,6 +12,7 @@
 		D1B0187028E32AF800F2190D /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0186F28E32AF800F2190D /* WebService.swift */; };
 		D1B0187428E3437100F2190D /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0187328E3437100F2190D /* RequestBuilder.swift */; };
 		D1B0187628E35D7100F2190D /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0187528E35D7100F2190D /* EventViewModel.swift */; };
+		D1B0187828E3636D00F2190D /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0187728E3636D00F2190D /* ScheduleViewModel.swift */; };
 		D1C64DAC28658A47005BB26C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DAB28658A47005BB26C /* AppDelegate.swift */; };
 		D1C64DAE28658A47005BB26C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DAD28658A47005BB26C /* SceneDelegate.swift */; };
 		D1C64DB528658A49005BB26C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1C64DB428658A49005BB26C /* Assets.xcassets */; };
@@ -25,17 +26,17 @@
 		D1C64DE92865A1F1005BB26C /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DE82865A1F1005BB26C /* SplashScreenViewController.swift */; };
 		D1C64DEB2865A41C005BB26C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DEA2865A41C005BB26C /* TabBarViewController.swift */; };
 		D1C64DED2865AD82005BB26C /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C64DEC2865AD82005BB26C /* Schedule.storyboard */; };
-		D1C64DEF2865AF46005BB26C /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DEE2865AF46005BB26C /* ScheduleViewController.swift */; };
+		D1C64DEF2865AF46005BB26C /* ScheduleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DEE2865AF46005BB26C /* ScheduleListViewController.swift */; };
 		D1C64DF428663A0B005BB26C /* EventsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DF328663A0B005BB26C /* EventsListViewModel.swift */; };
 		D1C64DF728663E95005BB26C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DF628663E95005BB26C /* Event.swift */; };
 		D1C64DFC286654B0005BB26C /* EventsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DFB286654B0005BB26C /* EventsNetworkService.swift */; };
 		D1C64DFF2869CA30005BB26C /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DFE2869CA30005BB26C /* Schedule.swift */; };
-		D1C64E012869CA86005BB26C /* SchedulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64E002869CA86005BB26C /* SchedulesViewModel.swift */; };
+		D1C64E012869CA86005BB26C /* ScheduleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64E002869CA86005BB26C /* ScheduleListViewModel.swift */; };
 		D1C64E032869CBE7005BB26C /* SchedulesNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64E022869CBE7005BB26C /* SchedulesNetworkService.swift */; };
 		D1C64E062869D875005BB26C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64E052869D875005BB26C /* ScheduleTableViewCell.swift */; };
 		D1C64E082869DC8C005BB26C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C64E072869DC8B005BB26C /* Main.storyboard */; };
 		D1CDFF4A286C7FBD0028E5F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CDFF49286C7FBD0028E5F2 /* Extensions.swift */; };
-		D1CDFF4C286C81B90028E5F2 /* Apis.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CDFF4B286C81B90028E5F2 /* Apis.swift */; };
+		D1CDFF4C286C81B90028E5F2 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CDFF4B286C81B90028E5F2 /* URLs.swift */; };
 		F62DBF8DD35EE1D1F7219BD1 /* Pods_StreamingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B6AB6687966D45B67A8E25 /* Pods_StreamingApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		D1B0186F28E32AF800F2190D /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		D1B0187328E3437100F2190D /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		D1B0187528E35D7100F2190D /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		D1B0187728E3636D00F2190D /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		D1C64DA828658A47005BB26C /* StreamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C64DAB28658A47005BB26C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1C64DAD28658A47005BB26C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,17 +87,17 @@
 		D1C64DE82865A1F1005BB26C /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		D1C64DEA2865A41C005BB26C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D1C64DEC2865AD82005BB26C /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
-		D1C64DEE2865AF46005BB26C /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		D1C64DEE2865AF46005BB26C /* ScheduleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListViewController.swift; sourceTree = "<group>"; };
 		D1C64DF328663A0B005BB26C /* EventsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewModel.swift; sourceTree = "<group>"; };
 		D1C64DF628663E95005BB26C /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		D1C64DFB286654B0005BB26C /* EventsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsNetworkService.swift; sourceTree = "<group>"; };
 		D1C64DFE2869CA30005BB26C /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
-		D1C64E002869CA86005BB26C /* SchedulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesViewModel.swift; sourceTree = "<group>"; };
+		D1C64E002869CA86005BB26C /* ScheduleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListViewModel.swift; sourceTree = "<group>"; };
 		D1C64E022869CBE7005BB26C /* SchedulesNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesNetworkService.swift; sourceTree = "<group>"; };
 		D1C64E052869D875005BB26C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		D1C64E072869DC8B005BB26C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D1CDFF49286C7FBD0028E5F2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		D1CDFF4B286C81B90028E5F2 /* Apis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apis.swift; sourceTree = "<group>"; };
+		D1CDFF4B286C81B90028E5F2 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		D9CCD473F26C4766648DDE07 /* Pods-StreamingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreamingApp.release.xcconfig"; path = "Target Support Files/Pods-StreamingApp/Pods-StreamingApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,7 +221,7 @@
 		D1C64DDE28659578005BB26C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D1C64DEE2865AF46005BB26C /* ScheduleViewController.swift */,
+				D1C64DEE2865AF46005BB26C /* ScheduleListViewController.swift */,
 				D1C64DDF2865974F005BB26C /* EventsListViewController.swift */,
 				D1C64DE82865A1F1005BB26C /* SplashScreenViewController.swift */,
 				D1C64DEA2865A41C005BB26C /* TabBarViewController.swift */,
@@ -251,8 +253,9 @@
 			isa = PBXGroup;
 			children = (
 				D1C64DF328663A0B005BB26C /* EventsListViewModel.swift */,
-				D1C64E002869CA86005BB26C /* SchedulesViewModel.swift */,
+				D1C64E002869CA86005BB26C /* ScheduleListViewModel.swift */,
 				D1B0187528E35D7100F2190D /* EventViewModel.swift */,
+				D1B0187728E3636D00F2190D /* ScheduleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -280,7 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				D1CDFF49286C7FBD0028E5F2 /* Extensions.swift */,
-				D1CDFF4B286C81B90028E5F2 /* Apis.swift */,
+				D1CDFF4B286C81B90028E5F2 /* URLs.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -528,11 +531,12 @@
 			files = (
 				D1C64DF728663E95005BB26C /* Event.swift in Sources */,
 				D1C64DE02865974F005BB26C /* EventsListViewController.swift in Sources */,
-				D1CDFF4C286C81B90028E5F2 /* Apis.swift in Sources */,
+				D1CDFF4C286C81B90028E5F2 /* URLs.swift in Sources */,
+				D1B0187828E3636D00F2190D /* ScheduleViewModel.swift in Sources */,
 				D1B0187428E3437100F2190D /* RequestBuilder.swift in Sources */,
 				D1C64DE92865A1F1005BB26C /* SplashScreenViewController.swift in Sources */,
 				D1B0187028E32AF800F2190D /* WebService.swift in Sources */,
-				D1C64DEF2865AF46005BB26C /* ScheduleViewController.swift in Sources */,
+				D1C64DEF2865AF46005BB26C /* ScheduleListViewController.swift in Sources */,
 				D1C64E032869CBE7005BB26C /* SchedulesNetworkService.swift in Sources */,
 				D1B0187628E35D7100F2190D /* EventViewModel.swift in Sources */,
 				D1C64DAC28658A47005BB26C /* AppDelegate.swift in Sources */,
@@ -544,7 +548,7 @@
 				D1C64E062869D875005BB26C /* ScheduleTableViewCell.swift in Sources */,
 				D1C64DAE28658A47005BB26C /* SceneDelegate.swift in Sources */,
 				D1C64DFF2869CA30005BB26C /* Schedule.swift in Sources */,
-				D1C64E012869CA86005BB26C /* SchedulesViewModel.swift in Sources */,
+				D1C64E012869CA86005BB26C /* ScheduleListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
