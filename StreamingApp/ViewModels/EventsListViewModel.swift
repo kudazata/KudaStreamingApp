@@ -14,7 +14,7 @@ protocol EventsDelegate {
 
 class EventsListViewModel {
     
-    private var events = [Event]()
+    var events = [Event]()
     var eventsDelegate: EventsDelegate?
     
     var numberOfSections: Int {

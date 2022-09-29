@@ -9,7 +9,7 @@ import UIKit
 
 class ScheduleListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SchedulesDelegate {
     
-    private let scheduleListViewModel = ScheduleListViewModel()
+    let scheduleListViewModel = ScheduleListViewModel()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     

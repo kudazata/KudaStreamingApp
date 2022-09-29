@@ -12,7 +12,7 @@ class EventsListViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    private let eventsListViewModel = EventsListViewModel()
+    let eventsListViewModel = EventsListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()

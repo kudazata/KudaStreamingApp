@@ -14,7 +14,7 @@ protocol SchedulesDelegate {
 
 class ScheduleListViewModel {
     
-    private var schedules = [Schedule]()
+    var schedules = [Schedule]()
     private var timer = Timer()
     var schedulesDelegate: SchedulesDelegate?
     
