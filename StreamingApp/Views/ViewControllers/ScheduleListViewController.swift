@@ -9,7 +9,7 @@ import UIKit
 
 class ScheduleListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SchedulesDelegate {
     
-    private var scheduleListViewModel = ScheduleListViewModel()
+    private let scheduleListViewModel = ScheduleListViewModel()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -34,7 +34,23 @@ class ScheduleListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func errorFetchingSchedules(error: NetworkError) {
-        print(error.localizedDescription)
+        
+        var errorMessage = ""
+        
+        switch error {
+        case .customError(let customError):
+            errorMessage = customError.localizedDescription
+        default:
+            errorMessage = error.localizedDescription
+        }
+        
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            showRetryAlert(title: "Network error", message: errorMessage, vc: self) {
+                self.activityIndicator.startAnimating()
+                self.scheduleListViewModel.getSchedules()
+            }
+        }
     }
    
     //MARK: - Tableview functions

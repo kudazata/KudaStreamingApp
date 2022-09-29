@@ -13,6 +13,7 @@
 		D1B0187428E3437100F2190D /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0187328E3437100F2190D /* RequestBuilder.swift */; };
 		D1B0187628E35D7100F2190D /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0187528E35D7100F2190D /* EventViewModel.swift */; };
 		D1B0187828E3636D00F2190D /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0187728E3636D00F2190D /* ScheduleViewModel.swift */; };
+		D1B52C9128E5A72F00D66F2C /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52C9028E5A72E00D66F2C /* CommonFunctions.swift */; };
 		D1C64DAC28658A47005BB26C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DAB28658A47005BB26C /* AppDelegate.swift */; };
 		D1C64DAE28658A47005BB26C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DAD28658A47005BB26C /* SceneDelegate.swift */; };
 		D1C64DB528658A49005BB26C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1C64DB428658A49005BB26C /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		D1B0187328E3437100F2190D /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		D1B0187528E35D7100F2190D /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
 		D1B0187728E3636D00F2190D /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		D1B52C9028E5A72E00D66F2C /* CommonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		D1C64DA828658A47005BB26C /* StreamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C64DAB28658A47005BB26C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1C64DAD28658A47005BB26C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				D1CDFF49286C7FBD0028E5F2 /* Extensions.swift */,
 				D1CDFF4B286C81B90028E5F2 /* URLs.swift */,
+				D1B52C9028E5A72E00D66F2C /* CommonFunctions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				D1B0187028E32AF800F2190D /* WebService.swift in Sources */,
 				D1C64DEF2865AF46005BB26C /* ScheduleListViewController.swift in Sources */,
 				D1C64E032869CBE7005BB26C /* SchedulesNetworkService.swift in Sources */,
+				D1B52C9128E5A72F00D66F2C /* CommonFunctions.swift in Sources */,
 				D1B0187628E35D7100F2190D /* EventViewModel.swift in Sources */,
 				D1C64DAC28658A47005BB26C /* AppDelegate.swift in Sources */,
 				D1C64DF428663A0B005BB26C /* EventsListViewModel.swift in Sources */,

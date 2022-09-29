@@ -12,7 +12,7 @@ class EventsListViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    private var eventsListViewModel = EventsListViewModel()
+    private let eventsListViewModel = EventsListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +30,23 @@ class EventsListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func errorFetchingEvents(error: NetworkError) {
+        
+        var errorMessage = ""
+    
+        switch error {
+        case .customError(let customError):
+            errorMessage = customError.localizedDescription
+        default:
+            errorMessage = error.localizedDescription
+        }
+        
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
+            showRetryAlert(title: "Network error", message: errorMessage, vc: self) {
+                self.activityIndicator.startAnimating()
+                self.eventsListViewModel.getEvents()
+            }
         }
-        print(error.localizedDescription)
     }
     
  

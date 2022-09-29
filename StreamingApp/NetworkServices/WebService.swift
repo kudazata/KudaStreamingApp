@@ -13,7 +13,13 @@ enum NetworkError: Error {
     case decodingError
     case badRequest
     case noData
-    case custom(Error)
+    case customError(Error)
+}
+
+extension NetworkError: LocalizedError {
+    public var errorDescription: String? {
+        return "There was an error connecting to our server. Please try again"
+    }
 }
 
 /// A resource object to be created when making network calls
@@ -34,7 +40,7 @@ class WebService {
         URLSession.shared.dataTask(with: resource.urlRequest) { data, response, error in
             
             if let error = error {
-                completion(.failure(.custom(error)))
+                completion(.failure(.customError(error)))
                 return
             }
             
