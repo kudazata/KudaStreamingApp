@@ -10,38 +10,51 @@ import XCTest
 
 class EventsListViewModelTests: XCTestCase {
     
-    private var eventsListViewModel: EventsListViewModel!
+    private var sut: EventsListViewModel!
+    private var eventsServiceMock: EventsNetworkServiceMock!
 
     override func setUpWithError() throws {
-        eventsListViewModel = EventsListViewModel()
+        eventsServiceMock = EventsNetworkServiceMock(shouldReturnError: false)
+        sut = EventsListViewModel(eventsNetworkService: eventsServiceMock)
     }
 
     override func tearDownWithError() throws {
-        eventsListViewModel = nil
+        eventsServiceMock = nil
+        sut = nil
+    }
+    
+    func testInit_EventsCountShouldReturnZero() {
+        XCTAssertEqual(sut.events.count, 0)
+    }
+    
+    func testSuccessfulGetEvents_ShouldReturnEventsCountGreaterThanZero() {
+        sut.getEvents()
+        XCTAssertGreaterThan(sut.events.count, 0)
+    }
+    
+    func testUnsuccessfulGetEvents_EventsCountShouldReturnZero() {
+        eventsServiceMock.shouldReturnError = true
+        sut = EventsListViewModel(eventsNetworkService: eventsServiceMock)
+        sut.getEvents()
+        XCTAssertEqual(sut.events.count, 0)
     }
 
     func testNumberOfSections_ShouldReturnOne() {
-        XCTAssertEqual(eventsListViewModel.numberOfSections, 1)
+        XCTAssertEqual(sut.numberOfSections, 1)
     }
     
     func testNumberOfRowsInSection_ShouldReturnEventsCount() {
-        let event1 = Event(id: "1", title: "Man City vs Arsenal", subtitle: "Champions League", date: Date(), imageUrl: "www.image.com", videoUrl: "www.video.com")
-        let event2 = Event(id: "2", title: "Man Utd vs Liverpool", subtitle: "Premier League", date: Date(), imageUrl: "www.image.com", videoUrl: "www.video.com")
-        
-        eventsListViewModel.events = [event1, event2]
-        
-        XCTAssertEqual(eventsListViewModel.numberOfRowsInSection(0), 2)
+        sut.getEvents()
+        XCTAssertEqual(sut.numberOfRowsInSection(0), 2)
     }
     
     func testEventAtIndex_ShoudReturnCorrectEvent() {
-        let event1 = Event(id: "1", title: "Man City vs Arsenal", subtitle: "Champions League", date: Date(), imageUrl: "www.image.com", videoUrl: "www.video.com")
-        let event2 = Event(id: "1", title: "Man Utd vs Liverpool", subtitle: "Premier League", date: Date(), imageUrl: "www.image.com", videoUrl: "www.video.com")
-        eventsListViewModel.events = [event1, event2]
         
-        let eventVM = eventsListViewModel.eventAtIndex(0)
+        sut.getEvents()
+        let eventVM = sut.eventAtIndex(0)
         
-        XCTAssertEqual(eventVM.title, "Man City vs Arsenal")
-        XCTAssertEqual(eventVM.subtitle, "Champions League")
+        XCTAssertEqual(eventVM.title, sut.events[0].title)
+        XCTAssertEqual(eventVM.subtitle, sut.events[0].subtitle)
         
     }
 

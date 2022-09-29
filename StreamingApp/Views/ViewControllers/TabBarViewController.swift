@@ -18,8 +18,11 @@ class TabBarViewController: UITabBarController {
     
     private func setupVCs() {
         
-        let eventsVC = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "eventsVC")
-        let scheduleVC = UIStoryboard(name: "Schedule", bundle: nil).instantiateViewController(withIdentifier: "scheduleVC")
+        let eventsVC = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "eventsVC") as! EventsListViewController
+        eventsVC.eventsNetworkService = EventsNetworkService()
+        
+        let scheduleVC = UIStoryboard(name: "Schedule", bundle: nil).instantiateViewController(withIdentifier: "scheduleVC") as! ScheduleListViewController
+        scheduleVC.schedulesNetworkService = SchedulesNetworkService()
         
         viewControllers = [
             createNavController(for: eventsVC, title: NSLocalizedString("Events", comment: ""), imageName: "house.fill"),

@@ -14,9 +14,14 @@ protocol SchedulesDelegate {
 
 class ScheduleListViewModel {
     
+    init(schedulesNetworkService: SchedulesNetworkServiceProtocol) {
+        self.schedulesNetworkService = schedulesNetworkService
+    }
+    
     var schedules = [Schedule]()
     private var timer = Timer()
     var schedulesDelegate: SchedulesDelegate?
+    var schedulesNetworkService: SchedulesNetworkServiceProtocol?
     
     var numberOfSections: Int {
         return 1
@@ -34,7 +39,7 @@ class ScheduleListViewModel {
     
     func getSchedules() {
         
-        SchedulesNetworkService().getSchedules { schedules, error in
+        schedulesNetworkService?.getSchedules { schedules, error in
             
             if let error = error {
                 self.schedulesDelegate?.errorFetchingSchedules(error: error)

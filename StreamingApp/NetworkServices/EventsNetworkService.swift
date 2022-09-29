@@ -7,7 +7,11 @@
 
 import Foundation
 
-class EventsNetworkService {
+protocol EventsNetworkServiceProtocol {
+    func getEvents(completion: @escaping ([Event]?, NetworkError?) -> Void)
+}
+
+struct EventsNetworkService: EventsNetworkServiceProtocol {
     
     /// Fetch an array of events
     /// - Parameters:

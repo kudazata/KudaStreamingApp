@@ -9,12 +9,14 @@ import UIKit
 
 class ScheduleListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SchedulesDelegate {
     
-    let scheduleListViewModel = ScheduleListViewModel()
+    var scheduleListViewModel: ScheduleListViewModel!
+    var schedulesNetworkService: SchedulesNetworkServiceProtocol!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scheduleListViewModel = ScheduleListViewModel(schedulesNetworkService: schedulesNetworkService)
         scheduleListViewModel.schedulesDelegate = self
         scheduleListViewModel.getSchedules()
         scheduleListViewModel.setupTimer()

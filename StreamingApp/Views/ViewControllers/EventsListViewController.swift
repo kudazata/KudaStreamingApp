@@ -12,10 +12,12 @@ class EventsListViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    let eventsListViewModel = EventsListViewModel()
+    var eventsListViewModel: EventsListViewModel!
+    var eventsNetworkService: EventsNetworkServiceProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventsListViewModel = EventsListViewModel(eventsNetworkService: eventsNetworkService)
         eventsListViewModel.eventsDelegate = self
         eventsListViewModel.getEvents()
     }

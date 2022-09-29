@@ -14,8 +14,13 @@ protocol EventsDelegate {
 
 class EventsListViewModel {
     
+    init(eventsNetworkService: EventsNetworkServiceProtocol) {
+        self.eventsNetworkService = eventsNetworkService
+    }
+    
     var events = [Event]()
     var eventsDelegate: EventsDelegate?
+    var eventsNetworkService: EventsNetworkServiceProtocol?
     
     var numberOfSections: Int {
         return 1
@@ -32,7 +37,7 @@ class EventsListViewModel {
     
     func getEvents() {
         
-        EventsNetworkService().getEvents { events, error in
+        eventsNetworkService?.getEvents { events, error in
             
             if let error = error {
                 self.eventsDelegate?.errorFetchingEvents(error: error)

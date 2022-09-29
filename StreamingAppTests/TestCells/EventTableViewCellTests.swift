@@ -10,11 +10,15 @@ import XCTest
 
 class EventTableViewCellTests: XCTestCase {
     
-    var tableView: UITableView!
-    var sut: EventTableViewCell!
+    private var tableView: UITableView!
+    private var sut: EventTableViewCell!
+    private var eventsServiceMock: EventsNetworkServiceMock!
+    private var eventsListVC: EventsListViewController!
 
     override func setUpWithError() throws {
-        let eventsListVC = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "eventsVC") as! EventsListViewController
+        eventsListVC = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "eventsVC") as? EventsListViewController
+        eventsServiceMock = EventsNetworkServiceMock(shouldReturnError: false)
+        eventsListVC.eventsNetworkService = eventsServiceMock
         _ = eventsListVC.view
         tableView = eventsListVC.tableView
         sut = tableView.dequeueReusableCell(withIdentifier: "eventCell") as? EventTableViewCell
@@ -23,15 +27,12 @@ class EventTableViewCellTests: XCTestCase {
     override func tearDownWithError() throws {
         tableView = nil
         sut = nil
+        eventsServiceMock = nil
+        eventsListVC = nil
     }
 
     func testCell_ShouldConfigureWithEventObject() {
-        let event = Event(id: "1",
-                          title: "Man City vs Arsenal",
-                          subtitle: "Champions League",
-                          date: Date(),
-                          imageUrl: "www.image.com",
-                          videoUrl: "www.video.com")
+        let event = eventsListVC.eventsListViewModel.events[0]
         
         let eventViewModel = EventViewModel(event)
         

@@ -10,7 +10,7 @@ import XCTest
 
 class EventViewModelTests: XCTestCase {
     
-    private var eventViewModel: EventViewModel!
+    private var sut: EventViewModel!
     private var event: Event!
 
     override func setUpWithError() throws {
@@ -26,20 +26,20 @@ class EventViewModelTests: XCTestCase {
                           imageUrl: "www.image.com",
                           videoUrl: "www.video.com")
         
-        eventViewModel = EventViewModel(event)
+        sut = EventViewModel(event)
     }
 
     override func tearDownWithError() throws {
-        eventViewModel = nil
+        sut = nil
         event = nil
     }
     
     func testTitle_ShouldReturnCorrectValue() {
-        XCTAssertEqual(eventViewModel.title, "Man City vs Arsenal")
+        XCTAssertEqual(sut.title, "Man City vs Arsenal")
     }
     
     func testSubtitle_ShouldReturnCorrectValue() {
-        XCTAssertEqual(eventViewModel.subtitle, "Champions League")
+        XCTAssertEqual(sut.subtitle, "Champions League")
     }
     
     ///This test uses a relative date formatter so will fail if incorrect date is input
@@ -48,11 +48,11 @@ class EventViewModelTests: XCTestCase {
     }*/
     
     func testImageUrl_ShouldReturnCorrectValue() {
-        XCTAssertEqual(eventViewModel.imageUrl, "www.image.com")
+        XCTAssertEqual(sut.imageUrl, event.imageUrl)
     }
     
     func testVideoUrl_ShouldReturnCorrectValue() {
-        XCTAssertEqual(eventViewModel.videoUrl, "www.video.com")
+        XCTAssertEqual(sut.videoUrl, event.videoUrl)
     }
 
 }

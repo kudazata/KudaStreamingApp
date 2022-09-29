@@ -10,42 +10,52 @@ import XCTest
 
 class ScheduleListViewModelTests: XCTestCase {
     
-    private var scheduleListViewModel: ScheduleListViewModel!
+    private var sut: ScheduleListViewModel!
+    private var schedulesServiceMock: SchedulesNetworkServiceMock!
 
     override func setUpWithError() throws {
-        scheduleListViewModel = ScheduleListViewModel()
+        schedulesServiceMock = SchedulesNetworkServiceMock(shouldReturnError: false)
+        sut = ScheduleListViewModel(schedulesNetworkService: schedulesServiceMock)
     }
 
     override func tearDownWithError() throws {
-        scheduleListViewModel = nil
+        sut = nil
+        schedulesServiceMock = nil
+    }
+    
+    func testInit_EventsCountShouldReturnZero() {
+        XCTAssertEqual(sut.schedules.count, 0)
+    }
+    
+    func testSuccessfulGetSchedules_ShouldReturnSchedulesCountGreaterThanZero() {
+        sut.getSchedules()
+        XCTAssertGreaterThan(sut.schedules.count, 0)
+    }
+    
+    func testUnsuccessfulGetEvents_EventsCountShouldReturnZero() {
+        schedulesServiceMock.shouldReturnError = true
+        sut = ScheduleListViewModel(schedulesNetworkService: schedulesServiceMock)
+        sut.getSchedules()
+        XCTAssertEqual(sut.schedules.count, 0)
     }
     
     func testNumberOfSections_ShouldReturnOne() {
-        XCTAssertEqual(scheduleListViewModel.numberOfSections, 1)
+        XCTAssertEqual(sut.numberOfSections, 1)
     }
 
     func testNumberOfRowsInSection_ShouldReturnSchedulesCount() {
         
-        let schedule1 = Schedule(id: "1", title: "Chelsea vs Newcastle", subtitle: "FA Cup", date: Date(), imageUrl: "www.image1.com")
-        
-        let schedule2 = Schedule(id: "2", title: "Barcelona vs Real Madrid", subtitle: "La Liga", date: Date(), imageUrl: "www.image2.com")
-        
-        scheduleListViewModel.schedules = [schedule1, schedule2]
-        
-        XCTAssertEqual(scheduleListViewModel.numberOfRowsInSection(0), 2)
+        sut.getSchedules()
+        XCTAssertEqual(sut.numberOfRowsInSection(0), 2)
     }
     
     func testScheduleAtIndex_ShoudReturnCorrectSchedule() {
-        let schedule1 = Schedule(id: "1", title: "Chelsea vs Newcastle", subtitle: "FA Cup", date: Date(), imageUrl: "www.image1.com")
         
-        let schedule2 = Schedule(id: "2", title: "Barcelona vs Real Madrid", subtitle: "La Liga", date: Date(), imageUrl: "www.image2.com")
+        sut.getSchedules()
+        let scheduleVM = sut.scheduleAtIndex(0)
         
-        scheduleListViewModel.schedules = [schedule1, schedule2]
-        
-        let scheduleVM = scheduleListViewModel.scheduleAtIndex(0)
-        
-        XCTAssertEqual(scheduleVM.title, "Chelsea vs Newcastle")
-        XCTAssertEqual(scheduleVM.subtitle, "FA Cup")
+        XCTAssertEqual(scheduleVM.title, sut.schedules[0].title)
+        XCTAssertEqual(scheduleVM.subtitle, sut.schedules[0].subtitle)
         
     }
 

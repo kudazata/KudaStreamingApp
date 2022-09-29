@@ -22,6 +22,8 @@
 		D1B52C9F28E5E76400D66F2C /* ScheduleTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52C9E28E5E76400D66F2C /* ScheduleTableViewCellTests.swift */; };
 		D1B52CA228E5EFB200D66F2C /* EventsListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52CA128E5EFB200D66F2C /* EventsListViewControllerTests.swift */; };
 		D1B52CA428E5F26500D66F2C /* ScheduleListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52CA328E5F26500D66F2C /* ScheduleListViewControllerTests.swift */; };
+		D1B52CA728E6006300D66F2C /* EventsNetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52CA628E6006300D66F2C /* EventsNetworkServiceMock.swift */; };
+		D1B52CA928E63A7300D66F2C /* SchedulesNetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52CA828E63A7300D66F2C /* SchedulesNetworkServiceMock.swift */; };
 		D1C64DAC28658A47005BB26C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DAB28658A47005BB26C /* AppDelegate.swift */; };
 		D1C64DAE28658A47005BB26C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C64DAD28658A47005BB26C /* SceneDelegate.swift */; };
 		D1C64DB528658A49005BB26C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1C64DB428658A49005BB26C /* Assets.xcassets */; };
@@ -86,6 +88,8 @@
 		D1B52C9E28E5E76400D66F2C /* ScheduleTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCellTests.swift; sourceTree = "<group>"; };
 		D1B52CA128E5EFB200D66F2C /* EventsListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewControllerTests.swift; sourceTree = "<group>"; };
 		D1B52CA328E5F26500D66F2C /* ScheduleListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListViewControllerTests.swift; sourceTree = "<group>"; };
+		D1B52CA628E6006300D66F2C /* EventsNetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsNetworkServiceMock.swift; sourceTree = "<group>"; };
+		D1B52CA828E63A7300D66F2C /* SchedulesNetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesNetworkServiceMock.swift; sourceTree = "<group>"; };
 		D1C64DA828658A47005BB26C /* StreamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C64DAB28658A47005BB26C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1C64DAD28658A47005BB26C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +199,15 @@
 			path = TestViewControllers;
 			sourceTree = "<group>";
 		};
+		D1B52CA528E6004600D66F2C /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D1B52CA628E6006300D66F2C /* EventsNetworkServiceMock.swift */,
+				D1B52CA828E63A7300D66F2C /* SchedulesNetworkServiceMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		D1C64D9F28658A47005BB26C = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +249,7 @@
 		D1C64DC128658A4A005BB26C /* StreamingAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				D1B52CA528E6004600D66F2C /* Mocks */,
 				D1B52CA028E5EEA800D66F2C /* TestViewControllers */,
 				D1B52C9B28E5E73600D66F2C /* TestCells */,
 				D1B52C9228E5CCF300D66F2C /* TestViewModels */,
@@ -602,10 +616,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B52CA228E5EFB200D66F2C /* EventsListViewControllerTests.swift in Sources */,
+				D1B52CA928E63A7300D66F2C /* SchedulesNetworkServiceMock.swift in Sources */,
 				D1B52C9F28E5E76400D66F2C /* ScheduleTableViewCellTests.swift in Sources */,
 				D1B52C9A28E5D93A00D66F2C /* ScheduleViewModelTests.swift in Sources */,
 				D1B52CA428E5F26500D66F2C /* ScheduleListViewControllerTests.swift in Sources */,
 				D1B52C9D28E5E74D00D66F2C /* EventTableViewCellTests.swift in Sources */,
+				D1B52CA728E6006300D66F2C /* EventsNetworkServiceMock.swift in Sources */,
 				D1B52C9828E5D46300D66F2C /* EventViewModelTests.swift in Sources */,
 				D1B52C9428E5CD2800D66F2C /* EventsListViewModelTests.swift in Sources */,
 				D1B52C9628E5D16900D66F2C /* ScheduleListViewModelTests.swift in Sources */,

@@ -35,11 +35,11 @@ class ScheduleViewModelTests: XCTestCase {
     }
     
     func testTitle_ShouldReturnCorrectValue() {
-        XCTAssertEqual(scheduleViewModel.title, "Liverpool vs Newcastle")
+        XCTAssertEqual(scheduleViewModel.title, schedule.title)
     }
     
     func testSubtitle_ShouldReturnCorrectValue() {
-        XCTAssertEqual(scheduleViewModel.subtitle, "FA Cup")
+        XCTAssertEqual(scheduleViewModel.subtitle, schedule.subtitle)
     }
     
     ///This test uses a relative date formatter so will fail if incorrect date is input
@@ -48,7 +48,7 @@ class ScheduleViewModelTests: XCTestCase {
     }*/
     
     func testImageUrl_ShouldReturnCorrectValue() {
-        XCTAssertEqual(scheduleViewModel.imageUrl, "www.image.com")
+        XCTAssertEqual(scheduleViewModel.imageUrl, schedule.imageUrl)
     }
     
 }

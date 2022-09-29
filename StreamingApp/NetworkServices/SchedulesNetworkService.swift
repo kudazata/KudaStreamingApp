@@ -7,7 +7,11 @@
 
 import Foundation
 
-class SchedulesNetworkService {
+protocol SchedulesNetworkServiceProtocol {
+    func getSchedules(completion: @escaping ([Schedule]?, NetworkError?) -> Void)
+}
+
+struct SchedulesNetworkService: SchedulesNetworkServiceProtocol {
     
     func getSchedules(completion: @escaping ([Schedule]?, NetworkError?) -> Void) {
         

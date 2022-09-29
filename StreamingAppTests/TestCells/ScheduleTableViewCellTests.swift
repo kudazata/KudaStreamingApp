@@ -10,32 +10,31 @@ import XCTest
 
 class ScheduleTableViewCellTests: XCTestCase {
 
-    var tableView: UITableView!
-    var sut: ScheduleTableViewCell!
+    private var tableView: UITableView!
+    private var sut: ScheduleTableViewCell!
+    private var schedulesServiceMock: SchedulesNetworkServiceMock!
+    private var scheduleVC: ScheduleListViewController!
     
     override func setUpWithError() throws {
-        let scheduleVC = UIStoryboard(name: "Schedule", bundle: nil).instantiateViewController(withIdentifier: "scheduleVC") as! ScheduleListViewController
+        scheduleVC = UIStoryboard(name: "Schedule", bundle: nil).instantiateViewController(withIdentifier: "scheduleVC") as? ScheduleListViewController
+        schedulesServiceMock = SchedulesNetworkServiceMock(shouldReturnError: false)
+        scheduleVC.schedulesNetworkService = schedulesServiceMock
         _ = scheduleVC.view
         tableView = scheduleVC.tableView
         sut = tableView.dequeueReusableCell(withIdentifier: "scheduleCell") as? ScheduleTableViewCell
-        
     }
 
     override func tearDownWithError() throws {
         tableView = nil
         sut = nil
+        schedulesServiceMock = nil
+        scheduleVC = nil
     }
     
     func testCell_ShouldConfigureWithScheduleData() {
         
-        let schedule = Schedule(id: "1",
-                                title: "Liverpool vs Newcastle",
-                                subtitle: "FA Cup",
-                                date: Date(),
-                                imageUrl: "www.image.com")
-        
+        let schedule = scheduleVC.scheduleListViewModel.schedules[0]
         let scheduleVM = ScheduleViewModel(schedule)
-        
         sut.configureCell(scheduleVM: scheduleVM)
         
         XCTAssertEqual(sut.titleLabel.text, schedule.title)

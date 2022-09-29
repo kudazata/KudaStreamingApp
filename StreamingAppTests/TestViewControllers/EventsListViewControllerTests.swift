@@ -11,26 +11,17 @@ import XCTest
 class EventsListViewControllerTests: XCTestCase {
     
     private var sut: EventsListViewController!
-    private var eventsListViewModel: EventsListViewModel!
-    private var event1: Event!
-    private var event2: Event!
 
     override func setUpWithError() throws {
         
         sut = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "eventsVC") as? EventsListViewController
+        sut.eventsNetworkService = EventsNetworkServiceMock()
         _ = sut.view
-        
-        event1 = Event(id: "1", title: "Man City vs Arsenal", subtitle: "Champions League", date: Date(), imageUrl: "www.image.com", videoUrl: "www.video.com")
-        event2 = Event(id: "2", title: "Man Utd vs Liverpool", subtitle: "Premier League", date: Date(), imageUrl: "www.image.com", videoUrl: "www.video.com")
-        
         
     }
 
     override func tearDownWithError() throws {
         sut = nil
-        eventsListViewModel = nil
-        event1 = nil
-        event2 = nil
     }
     
     
@@ -40,8 +31,7 @@ class EventsListViewControllerTests: XCTestCase {
     
   
     func testTableView_shouldReturnCorrectNumberOfRows() {
-        sut.eventsListViewModel.events = [event1, event2]
-        sut.tableView.reloadData()
+        sut.eventsListViewModel.getEvents()
         XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 2)
     }
 
